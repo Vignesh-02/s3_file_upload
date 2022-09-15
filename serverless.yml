@@ -1,0 +1,30 @@
+
+
+service: s3-file-upload
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: dev
+  region: us-east-1
+
+
+
+
+custom:
+  fileUploadBucketName: ${self:service}-bucket-${self:provider.stage}
+
+resources: 
+  Resources:
+    FileBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        Bucketname: $(self:custom.fileUploadBucketName)
+        AccessControl: PublicRead
+        
+
+# functions:
+#   function_test1:
+#     handler: src/handler.generateRandomNumber
+#     timeout: 60
+#     memorySize: 128
