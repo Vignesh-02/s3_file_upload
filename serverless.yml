@@ -4,7 +4,7 @@ service: s3-file-upload
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs16.x
   stage: dev
   region: us-east-1
 
@@ -19,7 +19,7 @@ resources:
     FileBucket:
       Type: AWS::S3::Bucket
       Properties:
-        Bucketname: $(self:custom.fileUploadBucketName)
+        BucketName: $(self:custom.fileUploadBucketName)
         AccessControl: PublicRead
 
 
