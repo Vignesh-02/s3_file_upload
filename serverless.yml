@@ -12,12 +12,12 @@ provider:
 
 
 custom:
-  fileUploadBucketName: ${self:service}-buckets-${self:provider.stage}
+  fileUploadBucketName: ${self:service}-mybucket-${self:provider.stage}
 
-functions:
-  s3Uploader:
-    handler: src/upload.handler
-    name: 
+# functions:
+#   s3Uploader:
+#     handler: src/upload.handler
+#     name: 
 
 
 resources: 
