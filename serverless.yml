@@ -30,12 +30,12 @@ functions:
       - http:
           path: images
           method: POST
-  iamRoleStatements:
+    iamRoleStatements:
     - Effect: Allow
       Action:
         - 's3:Put*'
       Resource: arn:s3:::${self:custom.fileUploadBucketName}/*
-  environment:
+    environment:
     FILE_UPLOAD_BUCKET_NAME: ${self:custom.fileUploadBucketName}
 # The * means that the lambda function has access to any nested folder of the s3 buckets
 # arn is amazon resource name
