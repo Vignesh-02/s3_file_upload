@@ -14,12 +14,18 @@ provider:
 custom:
   fileUploadBucketName: ${self:service}-bucket-${self:provider.stage}
 
+functions:
+  s3Uploader:
+    handler: src/upload.handler
+    name: 
+
+
 resources: 
   Resources:
     FileBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: $(self:custom.fileUploadBucketName)
+        BucketName: ${self:custom.fileUploadBucketName}
         AccessControl: PublicRead
 
 
