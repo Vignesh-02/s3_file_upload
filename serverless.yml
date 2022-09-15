@@ -7,6 +7,7 @@ provider:
   runtime: nodejs12.x
   stage: dev
   region: us-east-1
+  iamRoleStatements: 
 
 
 
@@ -14,10 +15,31 @@ provider:
 custom:
   fileUploadBucketName: ${self:service}-mybucket-${self:provider.stage}
 
-# functions:
-#   s3Uploader:
-#     handler: src/upload.handler
-#     name: 
+# This plugin is the one you installed as a npm package.
+plugins:
+  - serverless-iam-roles-per-function
+
+functions:
+  s3Uploader:
+    handler: src/upload.handler
+    name: s3-file-upload
+    description: This is a lambda handler which uploads a file to an S3 bucket based on an API Gateway trigger
+    timeout: 60 #seconds
+    memorySize: 128 #mb 
+    events:
+      - http:
+          path: images
+          method: POST
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - 's3:Put*'
+      Resource: arn:s3:::${self:custom.fileUploadBucketName}/*
+  environment:
+    FILE_UPLOAD_BUCKET_NAME: ${self:custom.fileUploadBucketName}
+# The * means that the lambda function has access to any nested folder of the s3 buckets
+# arn is amazon resource name
+#  lambda function cannot read or delete s3 bucket
 
 
 resources: 
