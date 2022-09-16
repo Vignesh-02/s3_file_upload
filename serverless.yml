@@ -10,8 +10,8 @@ custom:
   fileUploadBucketName: ${self:service}-mybucket-${self:provider.stage}
 
 # This plugin is the one you installed as a npm package.
-plugins:
-  - serverless-iam-roles-per-function
+# plugins:
+#   - serverless-iam-roles-per-function
 
 functions:
   s3Uploader:
