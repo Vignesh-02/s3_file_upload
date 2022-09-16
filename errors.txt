@@ -2,4 +2,6 @@
 Delete the aws cloudformtion stack as it results in an endless loop
 2. Plugin serverless-iam-roles-per-function
     Remove the plugin and it still works(this is a quick fix might cause error later)
-3. 
+3. Fixing status 502 bad gateway
+    Caused by improper response object in s3 upload object in upload.js 
+    Fixed by changing status to statusCode.
