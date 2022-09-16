@@ -1,0 +1,5 @@
+1. Rollback incomplete error
+Delete the aws cloudformtion stack as it results in an endless loop
+2. Plugin serverless-iam-roles-per-function
+    Remove the plugin and it still works(this is a quick fix might cause error later)
+3. 
