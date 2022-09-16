@@ -5,3 +5,8 @@ Delete the aws cloudformtion stack as it results in an endless loop
 3. Fixing status 502 bad gateway
     Caused by improper response object in s3 upload object in upload.js 
     Fixed by changing status to statusCode.
+4. Fixing status 403 access denied
+    solved by adding CORS config object and getObject, putObject bucket policy for my s3 bucket. 
+5. main.yml line 23 npm install dependencies error
+    fixed by adding - run npm ci command on line 23 instead of blank command
+    run npm ci installs the necessary devDependencies and dependencies for the lambda function.
