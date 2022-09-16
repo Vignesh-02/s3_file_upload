@@ -9,7 +9,7 @@ module.exports.handler = async(event) => {
     // we are making a lambda proxy integration
     const response = {
         isBase64Encoded: false,
-        status: 200,
+        statusCode: 200,
         body: JSON.stringify({message: 'Successfully uploaded file to S3'})
 };
 

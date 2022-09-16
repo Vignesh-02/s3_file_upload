@@ -1,4 +1,4 @@
-service: s3-file-upload
+service: s3-file-upload-using-api-gateway
 
 provider:
   name: aws
@@ -7,7 +7,7 @@ provider:
   region: us-east-1
 
 custom:
-  fileUploadBucketName: ${self:service}-mybucket-${self:provider.stage}
+  fileUploadBucketName: ${self:service}-vigubucket-${self:provider.stage}
 
 # This plugin is the one you installed as a npm package.
 # plugins:
@@ -16,7 +16,7 @@ custom:
 functions:
   s3Uploader:
     handler: src/upload.handler
-    name: s3-file-upload
+    name: s3-file-upload-using-api-gateway
     description: This is a lambda handler which uploads a file to an S3 bucket based on an API Gateway trigger
     timeout: 60 #seconds
     memorySize: 128 #mb 
