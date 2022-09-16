@@ -47,3 +47,4 @@ resources:
 
 # made changes to bucket name
 # installed plugin via command line
+# tried uninstalling and installing serverless-iam-roles-per-function
